@@ -1,25 +1,35 @@
 {
-    "providers": {
-        "awscloudformation": {
-            "AuthRoleName": "superchatbot-20190606170319-authRole",
-            "UnauthRoleArn": "arn:aws:iam::647087826666:role/superchatbot-20190606170319-unauthRole",
-            "AuthRoleArn": "arn:aws:iam::647087826666:role/superchatbot-20190606170319-authRole",
-            "Region": "us-east-1",
-            "DeploymentBucketName": "superchatbot-20190606170319-deployment",
-            "UnauthRoleName": "superchatbot-20190606170319-unauthRole",
-            "StackName": "superchatbot-20190606170319",
-            "StackId": "arn:aws:cloudformation:us-east-1:647087826666:stack/superchatbot-20190606170319/e35e8580-884e-11e9-938b-0a9ef6cbb06a"
-        }
-    },
-    "hosting": {
-        "S3AndCloudFront": {
-            "service": "S3AndCloudFront",
-            "providerPlugin": "awscloudformation",
-            "providerMetadata": {
-                "s3TemplateURL": "https://s3.amazonaws.com/superchatbot-20190606170319-deployment/amplify-cfn-templates/hosting/template.json",
-                "logicalId": "hostingS3AndCloudFront"
-            },
-            "lastPushTimeStamp": "2019-06-06T11:35:16.934Z"
-        }
-    }
+	"providers": {
+		"awscloudformation": {
+			"AuthRoleName": "superchatbot-20190606170319-authRole",
+			"UnauthRoleArn": "arn:aws:iam::647087826666:role/superchatbot-20190606170319-unauthRole",
+			"AuthRoleArn": "arn:aws:iam::647087826666:role/superchatbot-20190606170319-authRole",
+			"Region": "us-east-1",
+			"DeploymentBucketName": "superchatbot-20190606170319-deployment",
+			"UnauthRoleName": "superchatbot-20190606170319-unauthRole",
+			"StackName": "superchatbot-20190606170319",
+			"StackId": "arn:aws:cloudformation:us-east-1:647087826666:stack/superchatbot-20190606170319/e35e8580-884e-11e9-938b-0a9ef6cbb06a"
+		}
+	},
+	"hosting": {
+		"S3AndCloudFront": {
+			"service": "S3AndCloudFront",
+			"providerPlugin": "awscloudformation",
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/superchatbot-20190606170319-deployment/amplify-cfn-templates/hosting/template.json",
+				"logicalId": "hostingS3AndCloudFront"
+			},
+			"lastPushTimeStamp": "2019-06-06T11:47:36.365Z",
+			"output": {
+				"CloudFrontSecureURL": "https://d3173jrhfxrw4x.cloudfront.net",
+				"S3BucketSecureURL": "https://superchatbot-20190606170447--hostingbucket.s3.amazonaws.com",
+				"WebsiteURL": "http://superchatbot-20190606170447--hostingbucket.s3-website-us-east-1.amazonaws.com",
+				"CloudFrontDistributionID": "E3KUA56Z6XMKOV",
+				"Region": "us-east-1",
+				"HostingBucketName": "superchatbot-20190606170447--hostingbucket",
+				"CloudFrontDomainName": "d3173jrhfxrw4x.cloudfront.net"
+			},
+			"lastPushDirHash": "P9LH1IAN27oKuqin6+r+LiDTdos="
+		}
+	}
 }
