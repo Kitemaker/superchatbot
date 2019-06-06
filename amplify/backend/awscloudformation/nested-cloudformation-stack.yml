@@ -106,6 +106,13 @@
 				"TemplateURL": "https://s3.amazonaws.com/superchatbot-20190606154538-deployment/amplify-cfn-templates/interactions/superchatbot-cloudformation-template.json",
 				"Parameters": {}
 			}
+		},
+		"hostingS3AndCloudFront": {
+			"Type": "AWS::CloudFormation::Stack",
+			"Properties": {
+				"TemplateURL": "https://s3.amazonaws.com/superchatbot-20190606154538-deployment/amplify-cfn-templates/hosting/template.json",
+				"Parameters": {}
+			}
 		}
 	},
 	"Outputs": {

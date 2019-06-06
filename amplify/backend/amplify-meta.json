@@ -19,7 +19,7 @@
                 "s3TemplateURL": "https://s3.amazonaws.com/superchatbot-20190606154538-deployment/amplify-cfn-templates/auth/cognitod2fdb980-cloudformation-template.yml",
                 "logicalId": "authcognitod2fdb980"
             },
-            "lastPushTimeStamp": "2019-06-06T10:23:52.227Z"
+            "lastPushTimeStamp": "2019-06-06T10:44:23.546Z"
         }
     },
     "interactions": {
@@ -34,7 +34,18 @@
                 "s3TemplateURL": "https://s3.amazonaws.com/superchatbot-20190606154538-deployment/amplify-cfn-templates/interactions/superchatbot-cloudformation-template.json",
                 "logicalId": "interactionssuperchatbot"
             },
-            "lastPushTimeStamp": "2019-06-06T10:23:52.990Z"
+            "lastPushTimeStamp": "2019-06-06T10:44:23.566Z"
+        }
+    },
+    "hosting": {
+        "S3AndCloudFront": {
+            "service": "S3AndCloudFront",
+            "providerPlugin": "awscloudformation",
+            "providerMetadata": {
+                "s3TemplateURL": "https://s3.amazonaws.com/superchatbot-20190606154538-deployment/amplify-cfn-templates/hosting/template.json",
+                "logicalId": "hostingS3AndCloudFront"
+            },
+            "lastPushTimeStamp": "2019-06-06T10:44:23.523Z"
         }
     }
 }
