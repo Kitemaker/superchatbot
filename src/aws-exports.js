@@ -4,7 +4,9 @@ const awsmobile =  {
     "aws_project_region": "us-east-1",
     "aws_content_delivery_bucket": "superchatbot-20190606170447--hostingbucket",
     "aws_content_delivery_bucket_region": "us-east-1",
-    "aws_content_delivery_url": "https://d3173jrhfxrw4x.cloudfront.net"
+    "aws_content_delivery_url": "https://d3173jrhfxrw4x.cloudfront.net",
+    "aws_cognito_identity_pool_id": "us-east-1:973c453e-49fb-42eb-a4d9-b851443926d9",
+    "aws_cognito_region": "us-east-1"
 };
 
 
