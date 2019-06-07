@@ -10,5 +10,42 @@
             "StackName": "superchatbot-20190607105401",
             "StackId": "arn:aws:cloudformation:us-east-1:647087826666:stack/superchatbot-20190607105401/76910f90-88e4-11e9-9d98-0eee31812ac2"
         }
+    },
+    "hosting": {
+        "S3AndCloudFront": {
+            "service": "S3AndCloudFront",
+            "providerPlugin": "awscloudformation",
+            "providerMetadata": {
+                "s3TemplateURL": "https://s3.amazonaws.com/superchatbot-20190607105401-deployment/amplify-cfn-templates/hosting/template.json",
+                "logicalId": "hostingS3AndCloudFront"
+            },
+            "lastPushTimeStamp": "2019-06-07T05:30:13.596Z"
+        }
+    },
+    "auth": {
+        "cognito3f17bb10": {
+            "service": "Cognito",
+            "providerPlugin": "awscloudformation",
+            "providerMetadata": {
+                "s3TemplateURL": "https://s3.amazonaws.com/superchatbot-20190607105401-deployment/amplify-cfn-templates/auth/cognito3f17bb10-cloudformation-template.yml",
+                "logicalId": "authcognito3f17bb10"
+            },
+            "lastPushTimeStamp": "2019-06-07T05:30:13.633Z"
+        }
+    },
+    "interactions": {
+        "lexbooktrip": {
+            "service": "Lex",
+            "providerPlugin": "awscloudformation",
+            "build": true,
+            "lastBuildTimeStamp": "2019-06-07T05:30:10.890Z",
+            "lastPackageTimeStamp": "2019-06-07T05:30:11.093Z",
+            "distZipFilename": "lexbooktrip-1559885410-latest-build.zip",
+            "providerMetadata": {
+                "s3TemplateURL": "https://s3.amazonaws.com/superchatbot-20190607105401-deployment/amplify-cfn-templates/interactions/lexbooktrip-cloudformation-template.json",
+                "logicalId": "interactionslexbooktrip"
+            },
+            "lastPushTimeStamp": "2019-06-07T05:30:13.616Z"
+        }
     }
 }

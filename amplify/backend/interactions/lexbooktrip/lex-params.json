@@ -1,5 +1,5 @@
 {
-    "resourceName": "lex",
+    "resourceName": "lexbooktrip",
     "intents": [
         {
             "cancelMessage": "Okay, I have cancelled your reservation in progress.",
