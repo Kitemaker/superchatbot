@@ -78,19 +78,12 @@
 				}
 			}
 		},
-		"hostingS3AndCloudFront": {
+		"authcognitoce2995ea": {
 			"Type": "AWS::CloudFormation::Stack",
 			"Properties": {
-				"TemplateURL": "https://s3.amazonaws.com/superchatbot-20190606170319-deployment/amplify-cfn-templates/hosting/template.json",
-				"Parameters": {}
-			}
-		},
-		"authcognitoa2e1e400": {
-			"Type": "AWS::CloudFormation::Stack",
-			"Properties": {
-				"TemplateURL": "https://s3.amazonaws.com/superchatbot-20190606170319-deployment/amplify-cfn-templates/auth/cognitoa2e1e400-cloudformation-template.yml",
+				"TemplateURL": "https://s3.amazonaws.com/superchatbot-20190607103327-deployment/amplify-cfn-templates/auth/cognitoce2995ea-cloudformation-template.yml",
 				"Parameters": {
-					"identityPoolName": "superchatbot_identitypool_475f20dc",
+					"identityPoolName": "superchatbot_identitypool_1d782daf",
 					"allowUnauthenticatedIdentities": true,
 					"thirdPartyAuth": false,
 					"lambdaLogPolicy": "superchatbot_lambda_log_policy",
@@ -99,12 +92,19 @@
 					"openIdLambdaIAMPolicy": "superchatbot_openid_lambda_iam_policy",
 					"openIdLogPolicy": "superchatbot_openid_lambda_log_policy",
 					"authSelections": "identityPoolOnly",
-					"resourceName": "cognitoa2e1e400",
-					"unAuthRoleName": "superchatbot-20190606170319-unauthRole",
-					"authRoleName": "superchatbot-20190606170319-authRole",
-					"unAuthRoleArn": "arn:aws:iam::647087826666:role/superchatbot-20190606170319-unauthRole",
-					"authRoleArn": "arn:aws:iam::647087826666:role/superchatbot-20190606170319-authRole"
+					"resourceName": "cognitoce2995ea",
+					"unAuthRoleName": "superchatbot-20190607103327-unauthRole",
+					"authRoleName": "superchatbot-20190607103327-authRole",
+					"unAuthRoleArn": "arn:aws:iam::647087826666:role/superchatbot-20190607103327-unauthRole",
+					"authRoleArn": "arn:aws:iam::647087826666:role/superchatbot-20190607103327-authRole"
 				}
+			}
+		},
+		"interactionslex": {
+			"Type": "AWS::CloudFormation::Stack",
+			"Properties": {
+				"TemplateURL": "https://s3.amazonaws.com/superchatbot-20190607103327-deployment/amplify-cfn-templates/interactions/lex-cloudformation-template.json",
+				"Parameters": {}
 			}
 		}
 	},

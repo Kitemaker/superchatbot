@@ -1,52 +1,14 @@
 {
-	"providers": {
-		"awscloudformation": {
-			"AuthRoleName": "superchatbot-20190606170319-authRole",
-			"UnauthRoleArn": "arn:aws:iam::647087826666:role/superchatbot-20190606170319-unauthRole",
-			"AuthRoleArn": "arn:aws:iam::647087826666:role/superchatbot-20190606170319-authRole",
-			"Region": "us-east-1",
-			"DeploymentBucketName": "superchatbot-20190606170319-deployment",
-			"UnauthRoleName": "superchatbot-20190606170319-unauthRole",
-			"StackName": "superchatbot-20190606170319",
-			"StackId": "arn:aws:cloudformation:us-east-1:647087826666:stack/superchatbot-20190606170319/e35e8580-884e-11e9-938b-0a9ef6cbb06a"
-		}
-	},
-	"hosting": {
-		"S3AndCloudFront": {
-			"service": "S3AndCloudFront",
-			"providerPlugin": "awscloudformation",
-			"providerMetadata": {
-				"s3TemplateURL": "https://s3.amazonaws.com/superchatbot-20190606170319-deployment/amplify-cfn-templates/hosting/template.json",
-				"logicalId": "hostingS3AndCloudFront"
-			},
-			"lastPushTimeStamp": "2019-06-06T14:26:42.884Z",
-			"output": {
-				"CloudFrontSecureURL": "https://d3173jrhfxrw4x.cloudfront.net",
-				"S3BucketSecureURL": "https://superchatbot-20190606170447--hostingbucket.s3.amazonaws.com",
-				"WebsiteURL": "http://superchatbot-20190606170447--hostingbucket.s3-website-us-east-1.amazonaws.com",
-				"CloudFrontDistributionID": "E3KUA56Z6XMKOV",
-				"Region": "us-east-1",
-				"HostingBucketName": "superchatbot-20190606170447--hostingbucket",
-				"CloudFrontDomainName": "d3173jrhfxrw4x.cloudfront.net"
-			},
-			"lastPushDirHash": "P9LH1IAN27oKuqin6+r+LiDTdos="
-		}
-	},
-	"auth": {
-		"cognitoa2e1e400": {
-			"service": "Cognito",
-			"providerPlugin": "awscloudformation",
-			"providerMetadata": {
-				"s3TemplateURL": "https://s3.amazonaws.com/superchatbot-20190606170319-deployment/amplify-cfn-templates/auth/cognitoa2e1e400-cloudformation-template.yml",
-				"logicalId": "authcognitoa2e1e400"
-			},
-			"lastPushTimeStamp": "2019-06-06T14:26:42.898Z",
-			"output": {
-				"IdentityPoolId": "us-east-1:973c453e-49fb-42eb-a4d9-b851443926d9",
-				"IdentityPoolName": "superchatbot_identitypool_475f20dc"
-			},
-			"lastPushDirHash": "JFLE8mT4dQ1Uq3tE2zQHxVJyxhk="
-		}
-	},
-	"interactions": {}
+    "providers": {
+        "awscloudformation": {
+            "AuthRoleName": "superchatbot-20190607105401-authRole",
+            "UnauthRoleArn": "arn:aws:iam::647087826666:role/superchatbot-20190607105401-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::647087826666:role/superchatbot-20190607105401-authRole",
+            "Region": "us-east-1",
+            "DeploymentBucketName": "superchatbot-20190607105401-deployment",
+            "UnauthRoleName": "superchatbot-20190607105401-unauthRole",
+            "StackName": "superchatbot-20190607105401",
+            "StackId": "arn:aws:cloudformation:us-east-1:647087826666:stack/superchatbot-20190607105401/76910f90-88e4-11e9-9d98-0eee31812ac2"
+        }
+    }
 }

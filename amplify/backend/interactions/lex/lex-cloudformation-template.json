@@ -1,0 +1,188 @@
+{
+	"AWSTemplateFormatVersion": "2010-09-09",
+	"Description": "Lex chatbot creation from Amplify CLI",
+	"Parameters": {},
+	"Metadata": {
+		"AWS::CloudFormation::Interface": {
+			"ParameterGroups": [
+				{
+					"Label": {
+						"default": "Creating lex chatbot"
+					},
+					"Parameters": [
+						"inputs"
+					]
+				}
+			]
+		}
+	},
+	"Resources": {
+		"LambdaFunction": {
+			"Type": "AWS::Lambda::Function",
+			"Properties": {
+				"Handler": "index.handler",
+				"FunctionName": "superchatbot_cfnlambda_e4c29246",
+				"Role": {
+					"Fn::GetAtt": [
+						"LambdaExecutionRole",
+						"Arn"
+					]
+				},
+				"Runtime": "nodejs6.10",
+				"Timeout": "300",
+				"Code": {
+					"S3Bucket": "superchatbot-20190607103327-deployment",
+					"S3Key": "amplify-builds/lex-1559883981-latest-build.zip"
+				}
+			}
+		},
+		"LambdaExecutionRole": {
+			"Type": "AWS::IAM::Role",
+			"Properties": {
+				"RoleName": "lexLambdaRolee4c29246",
+				"AssumeRolePolicyDocument": {
+					"Version": "2012-10-17",
+					"Statement": [
+						{
+							"Effect": "Allow",
+							"Principal": {
+								"Service": [
+									"lambda.amazonaws.com"
+								]
+							},
+							"Action": [
+								"sts:AssumeRole"
+							]
+						}
+					]
+				},
+				"Policies": [
+					{
+						"PolicyName": "cloudWatchPolicye4c29246",
+						"PolicyDocument": {
+							"Version": "2012-10-17",
+							"Statement": [
+								{
+									"Effect": "Allow",
+									"Action": [
+										"logs:CreateLogGroup",
+										"logs:CreateLogStream",
+										"logs:PutLogEvents"
+									],
+									"Resource": "arn:aws:logs:*:*:*"
+								}
+							]
+						}
+					},
+					{
+						"PolicyName": "lexPolicye4c29246",
+						"PolicyDocument": {
+							"Version": "2012-10-17",
+							"Statement": [
+								{
+									"Effect": "Allow",
+									"Action": [
+										"lex:*"
+									],
+									"Resource": "*"
+								}
+							]
+						}
+					},
+					{
+						"PolicyName": "lambdaPolicye4c29246",
+						"PolicyDocument": {
+							"Version": "2012-10-17",
+							"Statement": [
+								{
+									"Effect": "Allow",
+									"Action": [
+										"lambda:*"
+									],
+									"Resource": "*"
+								}
+							]
+						}
+					}
+				]
+			}
+		},
+		"LambdaFunctionOutputse4c29246": {
+			"Type": "Custom::LambdaCallout",
+			"Properties": {
+				"ServiceToken": {
+					"Fn::GetAtt": [
+						"LambdaFunction",
+						"Arn"
+					]
+				}
+			}
+		},
+		"CognitoUnauthPolicy": {
+			"Type": "AWS::IAM::Policy",
+			"Properties": {
+				"PolicyName": "lex_amplify_e4c29246",
+				"Roles": [
+					"superchatbot-20190607103327-unauthRole"
+				],
+				"PolicyDocument": {
+					"Version": "2012-10-17",
+					"Statement": [
+						{
+							"Action": [
+								"lex:PostContent",
+								"lex:PostText"
+							],
+							"Effect": "Allow",
+							"Resource": [
+								"arn:aws:lex:us-east-1:647087826666:bot:BookTrip:*"
+							]
+						}
+					]
+				}
+			}
+		},
+		"CognitoAuthPolicy": {
+			"Type": "AWS::IAM::Policy",
+			"Properties": {
+				"PolicyName": "lex_amplify_e4c29246",
+				"Roles": [
+					"superchatbot-20190607103327-authRole"
+				],
+				"PolicyDocument": {
+					"Version": "2012-10-17",
+					"Statement": [
+						{
+							"Action": [
+								"lex:PostContent",
+								"lex:PostText"
+							],
+							"Effect": "Allow",
+							"Resource": [
+								"arn:aws:lex:us-east-1:647087826666:bot:BookTrip:*"
+							]
+						}
+					]
+				}
+			}
+		}
+	},
+	"Outputs": {
+		"Region": {
+			"Value": {
+				"Ref": "AWS::Region"
+			}
+		},
+		"BotName": {
+			"Value": "BookTrip"
+		},
+		"FunctionArn": {
+			"Value": {
+				"Fn::GetAtt": [
+					"LambdaFunction",
+					"Arn"
+				]
+			}
+		}
+	}
+}
