@@ -21,6 +21,9 @@ class App extends Component {
 
   constructor(){  
       super() 
+      this.accessKeyId = process.env.accessKeyId;
+      this.secretAccessKey = process.env.accessKeyId;
+     
      
     }
 
@@ -36,8 +39,8 @@ class App extends Component {
             theme={myTheme}            
             botName="TableTrick"
             welcomeMessage="Welcome, how can I help you today?"
-            accessKeyId = {process.env.accessKeyId}
-            secretAccessKey ={process.env.secretAccessKey}
+            accessKeyId = {process.env.AWS_ACCESS_KEY_ID}
+            secretAccessKey ={process.env.AWS_SECRET_ACCESS_KEY}
             region ="us-east-1"    
           />        
 
