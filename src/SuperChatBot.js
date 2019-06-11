@@ -9,8 +9,8 @@ let AWS = require('aws-sdk');
 class SuperChatBot extends Component{
 constructor(props){
     super(props);   
-    console.log('process.env.AWS_ACCESS_KEY_ID', process.env.accessKeyId);
-    console.log('process.env.AWS_SECRET_ACCESS_KEY', process.env.secretAccessKey);
+    console.log('process.env.accessKeyId', process.env.accessKeyId);
+    console.log('process.env.secretAccessKey', process.env.secretAccessKey);
     this.lexruntime = new AWS.LexRuntime({accessKeyId:process.env.accessKeyId,
                                             secretAccessKey :process.env.secretAccessKey,
                                             region:this.props.region});
