@@ -1,15 +1,24 @@
 import React, {Component} from 'react';
 import './SuperChatBot.css';
 import ChatList from './ChatList';
+
+import Amplify, { Auth } from 'aws-amplify';
 let AWS = require('aws-sdk');
 
 
 class SuperChatBot extends Component{
 constructor(props){
     super(props);   
-    this.lexruntime = new AWS.LexRuntime({accessKeyId:this.props.accessKeyId ,
-                                            secretAccessKey :this.props.secretAccessKey,
+    console.log('process.env.AWS_ACCESS_KEY_ID', process.env.AWS_ACCESS_KEY_ID);
+    console.log('process.env.AWS_SECRET_ACCESS_KEY', process.env.AWS_SECRET_ACCESS_KEY);
+    this.lexruntime = new AWS.LexRuntime({accessKeyId:process.env.AWS_ACCESS_KEY_ID,
+                                            secretAccessKey :process.env.AWS_SECRET_ACCESS_KEY,
                                             region:this.props.region});
+    // this.lexruntime = new AWS.LexRuntime({accessKeyId:this.props.accessKeyId ,
+    //                                             secretAccessKey :this.props.secretAccessKey,
+    //                                             region:this.props.region});
+    const currentConfig = Auth.configure();
+    //this.lexruntime = new AWS.LexRuntime();
      console.log('region = ', this.lexruntime.credentials); 
      
 }
@@ -51,6 +60,7 @@ handleComplete(err, confirmation) {
   }
 
 buttonClickHandler =()=>{
+    const currentConfig = Auth.configure();
     console.log(this.lexruntime.config.credentials);
     console.log(this.state.chatMessages);
     var params = {
