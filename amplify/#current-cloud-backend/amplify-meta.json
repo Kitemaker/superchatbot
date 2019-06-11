@@ -1,14 +1,35 @@
 {
-    "providers": {
-        "awscloudformation": {
-            "AuthRoleName": "superchatbot-20190607105401-authRole",
-            "UnauthRoleArn": "arn:aws:iam::647087826666:role/superchatbot-20190607105401-unauthRole",
-            "AuthRoleArn": "arn:aws:iam::647087826666:role/superchatbot-20190607105401-authRole",
-            "Region": "us-east-1",
-            "DeploymentBucketName": "superchatbot-20190607105401-deployment",
-            "UnauthRoleName": "superchatbot-20190607105401-unauthRole",
-            "StackName": "superchatbot-20190607105401",
-            "StackId": "arn:aws:cloudformation:us-east-1:647087826666:stack/superchatbot-20190607105401/76910f90-88e4-11e9-9d98-0eee31812ac2"
-        }
-    }
+	"providers": {
+		"awscloudformation": {
+			"AuthRoleName": "superchatbot-20190610145207-authRole",
+			"UnauthRoleArn": "arn:aws:iam::647087826666:role/superchatbot-20190610145207-unauthRole",
+			"AuthRoleArn": "arn:aws:iam::647087826666:role/superchatbot-20190610145207-authRole",
+			"Region": "us-east-1",
+			"DeploymentBucketName": "superchatbot-20190610145207-deployment",
+			"UnauthRoleName": "superchatbot-20190610145207-unauthRole",
+			"StackName": "superchatbot-20190610145207",
+			"StackId": "arn:aws:cloudformation:us-east-1:647087826666:stack/superchatbot-20190610145207/385a95a0-8b61-11e9-8947-0e0c84e5bae6"
+		}
+	},
+	"hosting": {
+		"S3AndCloudFront": {
+			"service": "S3AndCloudFront",
+			"providerPlugin": "awscloudformation",
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/superchatbot-20190610145207-deployment/amplify-cfn-templates/hosting/template.json",
+				"logicalId": "hostingS3AndCloudFront"
+			},
+			"lastPushTimeStamp": "2019-06-10T09:40:43.455Z",
+			"output": {
+				"CloudFrontSecureURL": "https://d7s5re1z5rti1.cloudfront.net",
+				"S3BucketSecureURL": "https://superchatbot-blockstack-app.s3.amazonaws.com",
+				"WebsiteURL": "http://superchatbot-blockstack-app.s3-website-us-east-1.amazonaws.com",
+				"CloudFrontDistributionID": "E11NJCHDJPNZIS",
+				"Region": "us-east-1",
+				"HostingBucketName": "superchatbot-blockstack-app",
+				"CloudFrontDomainName": "d7s5re1z5rti1.cloudfront.net"
+			},
+			"lastPushDirHash": "fOzAHueNN2z9VZzlJ5OMIHI6+/8="
+		}
+	}
 }

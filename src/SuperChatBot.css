@@ -1,0 +1,9 @@
+.FormSection{
+    margin-bottom: '20px';
+    background: '#fff';
+    border: '1px solid #ddd';
+    border-radius: '4px';
+    text-align: 'left';
+    width: '400px';
+    display: 'inline-block'
+}
