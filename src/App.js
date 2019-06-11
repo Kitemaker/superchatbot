@@ -36,8 +36,8 @@ class App extends Component {
             theme={myTheme}            
             botName="TableTrick"
             welcomeMessage="Welcome, how can I help you today?"
-            accessKeyId = "AKIAZNKLQU3VJAED33VN"
-            secretAccessKey ="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"
+            accessKeyId = {process.env.accessKeyId}
+            secretAccessKey ={process.env.secretAccessKey}
             region ="us-east-1"    
           />        
 
