@@ -3,29 +3,31 @@ import './SuperChatBot.css';
 import ChatList from './ChatList';
 
 import Amplify, { Auth } from 'aws-amplify';
+import { Container } from '@material-ui/core';
 let AWS = require('aws-sdk');
 
 
 class SuperChatBot extends Component{
 constructor(props){
     super(props);   
-    console.log('process.env.accessKeyId', this.props.accessKeyId);
-    console.log('process.env.secretAccessKey', this.props.secretAccessKey);
-    // this.lexruntime = new AWS.LexRuntime({accessKeyId:process.env.accessKeyId,
-    //                                         secretAccessKey :process.env.secretAccessKey,
-    //                                         region:this.props.region});
-    this.lexruntime = new AWS.LexRuntime({accessKeyId:this.props.accessKeyId ,
-                                                secretAccessKey :this.props.secretAccessKey,
-                                                region:this.props.region});
-    const currentConfig = Auth.configure();
-    //this.lexruntime = new AWS.LexRuntime();
-     console.log('region = ', this.lexruntime.credentials); 
+   
+    // Initialize the Amazon Cognito credentials provider
+    //LexSuperChatBot
+    AWS.config.region = 'us-east-1';
+    AWS.config.credentials = new AWS.CognitoIdentityCredentials({
+      IdentityPoolId: 'us-east-1:f0b611e0-5097-406d-8d29-e69ee7716db4',
+    });
+    this.lexruntime = new AWS.LexRuntime();
+
+   
      
 }
-
+sessionAttributes = {};
+textToPush = null;
 state={
-    chatMessages:[{source:"bot",message:"Hello"}, {source:"user",message:"Good Morning"}]
+    chatMessages:[{source:"bot",message:this.props.welcomeMessage}]
 }
+
 
 handleComplete(err, confirmation) {
     if (err) {
@@ -50,44 +52,78 @@ handleComplete(err, confirmation) {
   }
 
   responseCallback=(err,data) =>{
-    if (err) console.log(err, err.stack); // an error occurred
-    else
+    if (err) {
+      console.log(err, err.stack); // an error occurred
+      this.updateChatList({source:"bot",message: 'Error:  ' + err.message});
+    }
+    if(data)
     {
       console.log(this.state.chatMessages);           // successful response
-      this.updateChatList({source:"bot",message: data.message});
-     
-    } 
+      this.sessionAttributes = data.sessionAttributes;
+      this.updateChatList({source:"bot",message: data.message}); 
+        
+    }
+    this.textToPush.value = '';
+    this.textToPush.locked = false;   
+    this.textToPush.focus();
   }
 
-buttonClickHandler =()=>{
-    const currentConfig = Auth.configure();
-    console.log(this.lexruntime.config.credentials);
-    console.log(this.state.chatMessages);
-    var params = {
-      botAlias: 'prod', /* required */
-      botName: 'TableTrick', /* required */
-      inputText: 'start', /* required */
-      userId: 'sj112233', /* required */
-      requestAttributes: {},     sessionAttributes: {   }
-    };
-    this.updateChatList({source:"user",message: params.inputText});
-    this.lexruntime.postText(params, (err,data)=>this.responseCallback(err,data));
-    //let list = document.getElementById('chatList');
+  pushChat =()=>{
+    // if there is text to be sent...
+			this.textToPush = document.getElementById('userInputBox');
+			if (this.textToPush && this.textToPush.value && this.textToPush.value.trim().length > 0) {
+
+				// disable input to show we're sending it
+				let pushText = this.textToPush.value.trim();
+				this.textToPush.value = '...';
+        this.textToPush.locked = true;
+        let lexUserId = 'SuperChatBot';
+        var params = {
+          botAlias: this.props.botAlias, /* required */
+          botName: this.props.botName, /* required */
+          inputText: pushText, /* required */
+          userId: lexUserId, /* required */
+          sessionAttributes: this.sessionAttributes
+
+        };
+        this.updateChatList({source:"User",message: params.inputText});
+        this.lexruntime.postText(params, (err,data)=>this.responseCallback(err,data));
   
+    }
         
-        
-      } 
-   
-  
+} 
+
+
+textUpdated=(event)=>{ 
+ // this.textToPush.value = event.target.value;
+console.log(event.target.value);
+}
   
 
 render() {
-    const { title, theme, onComplete } = this.props;
+    const { title, theme, botName, welcomeMessage} = this.props;
     return (
-       <div>           
-             <ChatList  botName="TableTrick" userName="SJ112233" chatMessages={this.state.chatMessages}/>
-             <button onClick={this.buttonClickHandler}>Click Me</button>
-           
+       <div>
+          <Container  style={{width: "50%",  padding:"10px", background:"lightBlue"}}>  
+          <div class="w3-cell-row">         
+             <ChatList  botName={botName} userName="SJ112233" style={{ marginTop:"10px"}} chatMessages={this.state.chatMessages}/>
+          </div>
+          <div class="w3-cell-row"> 
+
+            <div className="w3-container  w3-cell"  style={{width: "100%"}}>        
+                <input type="text" id="userInputBox"  style={{width: "100%", height:"100%",  marginTop:"20px",  marginBottom:"10px"}}
+                                                              onChange={(event)=>this.textUpdated(event)}
+                                                              placeholder="start"/>
+            </div>
+            
+            <div className="w3-container  w3-cell" >  
+              <button class="w3-btn  w3-large" onClick={this.pushChat} style={{ background:"lightGreen", marginTop:"10px"}}>Send
+                <i class="w3-margin-left material-icons">send</i>
+              </button>
+            </div>
+          
+          </div>
+          </Container> 
        </div>
 
     );
