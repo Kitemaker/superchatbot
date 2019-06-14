@@ -1,33 +1,81 @@
-.App {
-  text-align: center;
+body {
+  padding-top: 5rem;
+  background-color: rgb(241, 246, 249);
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+.badge-primary {
+  background-color: rgb(33, 31, 109);
+  padding-top: 8px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.btn-primary {
+  color: #FFFFFF;
+  background-color: rgb(33, 31, 109);
+  border: 0;
 }
 
-.App-link {
-  color: #61dafb;
+.btn-primary:hover {
+  opacity: 0.5;
+  border: 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.btn-primary.disabled, .btn-primary:disabled {
+  opacity: 0.5;
+  background-color: rgb(135, 172, 196);
+}
+
+.card {
+  max-width: 320px;
+  border-top-width: 1px;
+  border-right-width: 1px;
+  border-bottom-width: 1px;
+  border-left-width: 1px;
+  border-top-style: solid;
+  border-right-style: solid;
+  border-bottom-style: solid;
+  border-left-style: solid;
+  border-image-source: initial;
+  border-image-slice: initial;
+  border-image-width: initial;
+  border-image-outset: initial;
+  border-image-repeat: initial;
+  border-top-color: rgb(196, 216, 229);
+  border-right-color: rgb(196, 216, 229);
+  border-bottom-color: rgb(196, 216, 229);
+  border-left-color: rgb(196, 216, 229);
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.0470588) 0px 4px 4px;
+}
+
+.card-img-top {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.list-group {
+  border-top-width: 1px;
+  border-right-width: 1px;
+  border-bottom-width: 1px;
+  border-left-width: 1px;
+  border-top-style: solid;
+  border-right-style: solid;
+  border-bottom-style: solid;
+  border-left-style: solid;
+  border-image-source: initial;
+  border-image-slice: initial;
+  border-image-width: initial;
+  border-image-outset: initial;
+  border-image-repeat: initial;
+  border-top-color: rgb(196, 216, 229);
+  border-right-color: rgb(196, 216, 229);
+  border-bottom-color: rgb(196, 216, 229);
+  border-left-color: rgb(196, 216, 229);
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.0470588) 0px 4px 4px;
 }

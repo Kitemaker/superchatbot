@@ -25,7 +25,7 @@ constructor(props){
 sessionAttributes = {};
 textToPush = null;
 state={
-    chatMessages:[{source:"bot",message:this.props.welcomeMessage}]
+    chatMessages:[{source:this.props.title ,message:this.props.welcomeMessage}]
 }
 
 
@@ -54,13 +54,13 @@ handleComplete(err, confirmation) {
   responseCallback=(err,data) =>{
     if (err) {
       console.log(err, err.stack); // an error occurred
-      this.updateChatList({source:"bot",message: 'Error:  ' + err.message});
+      this.updateChatList({source:'bot',message: 'Sorry! There is some error in getting the request. Please try again.'});
     }
     if(data)
     {
       console.log(this.state.chatMessages);           // successful response
       this.sessionAttributes = data.sessionAttributes;
-      this.updateChatList({source:"bot",message: data.message}); 
+      this.updateChatList({source:'bot',message: data.message}); 
         
     }
     this.textToPush.value = '';
@@ -86,7 +86,7 @@ handleComplete(err, confirmation) {
           sessionAttributes: this.sessionAttributes
 
         };
-        this.updateChatList({source:"User",message: params.inputText});
+        this.updateChatList({source:this.props.userName,message: params.inputText});
         this.lexruntime.postText(params, (err,data)=>this.responseCallback(err,data));
   
     }
@@ -106,14 +106,14 @@ render() {
        <div>
           <Container  style={{width: "50%",  padding:"10px", background:"lightBlue"}}>  
           <div class="w3-cell-row">         
-             <ChatList  botName={botName} userName="SJ112233" style={{ marginTop:"10px"}} chatMessages={this.state.chatMessages}/>
+             <ChatList  botTitle={this.props.title} userName={this.props.userName} style={{ marginTop:"10px"}} chatMessages={this.state.chatMessages}/>
           </div>
           <div class="w3-cell-row"> 
 
             <div className="w3-container  w3-cell"  style={{width: "100%"}}>        
                 <input type="text" id="userInputBox"  style={{width: "100%", height:"100%",  marginTop:"20px",  marginBottom:"10px"}}
                                                               onChange={(event)=>this.textUpdated(event)}
-                                                              placeholder="start"/>
+                                                              placeholder={this.props.placeholder}/>
             </div>
             
             <div className="w3-container  w3-cell" >  

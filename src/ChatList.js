@@ -24,10 +24,11 @@ function ChatList (props){
         <div>
            <List id="chatList" className={classes.root}  >
           {props.chatMessages.map((message, index) => {
-            let backg = message.source==='bot'? 'lightGreen':'lightBlue';
+            let backg = message.source=== 'bot' ? 'lightGreen':'lightBlue';
+            let primaryText = message.source ==='bot'? props.botTitle:props.userName
             return <ChatListItem 
-                    source = {message.source}
-                    primaryText = {message.source} 
+                    source = {message.source}                 
+                    primaryText = {primaryText} 
                     secondaryText={message.message}
                     key = {index}
                     background = {backg}

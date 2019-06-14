@@ -1,43 +1,41 @@
-import React, { Component } from 'react';
-import Amplify, { Interactions } from 'aws-amplify';
-import { ChatBot, AmplifyTheme } from 'aws-amplify-react';
-import awsconfig from './aws-exports';
-import SuperChatBot from './SuperChatBot';
-import Dashboard from './Dashboard';
+import React, { Component } from 'react'
+import './App.css'
+import { UserSession } from 'blockstack'
 
-let AWS = require('aws-sdk');
-
-Amplify.configure(awsconfig);
-
-// Imported default theme can be customized by overloading attributes
-const myTheme = {
-  ...AmplifyTheme,
-  sectionHeader: {
-    ...AmplifyTheme.sectionHeader,
-    backgroundColor: '#ff6600'
-  }
-};
+import Landing from './Landing'
+import SignedIn from './SignedIn'
 
 class App extends Component {
 
-  constructor(){  
-      super() 
-      this.accessKeyId = process.env.accessKeyId;
-      this.secretAccessKey = process.env.accessKeyId;
-     
-     
+  constructor() {
+    super()
+    this.userSession = new UserSession()
+  }
+
+  componentWillMount() {
+    const session = this.userSession
+    if(!session.isUserSignedIn() && session.isSignInPending()) {
+      session.handlePendingSignIn()
+      .then((userData) => {
+        if(!userData.username) {
+          throw new Error('This app requires a username.')
+        }
+        window.location = `/dashboard/${userData.username}`
+      })
     }
+  }
 
   render() {
-    console.log('Creating Chat Bot');
     return (
-      <div className="App">      
-        <Dashboard/>      
-      </div>  
-
-
+      <main role="main">
+          {this.userSession.isUserSignedIn() ?
+            <SignedIn />
+          :
+            <Landing />
+          }
+      </main>
     );
   }
 }
 
-export default App;
+export default App

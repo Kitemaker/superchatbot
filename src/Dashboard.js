@@ -16,7 +16,7 @@ import Paper from '@material-ui/core/Paper';
 //import Link from '@material-ui/core/Link';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import NotificationsIcon from '@material-ui/icons/Notifications';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import { mainListItems, secondaryListItems } from './listItems';
 //import Chart from './Chart';
 import Deposits from './Deposits';
@@ -114,7 +114,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function Dashboard() {
+export default function Dashboard(props) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
   const handleDrawerOpen = () => {
@@ -142,10 +142,11 @@ export default function Dashboard() {
           <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
             SuperChatBot
           </Typography>
-          <IconButton color="inherit">
-            {/* <Badge badgeContent={8} color="secondary">
-              <NotificationsIcon />
-            </Badge> */}
+          <Typography component="h1" variant="caption" color="inherit" style={{marginRight:"10px"}}>
+              {props.username}    
+          </Typography>
+          <IconButton color="inherit" onClick={props.signOut}>               
+              <ExitToAppIcon />         
           </IconButton>
         </Toolbar>
       </AppBar>
@@ -172,12 +173,17 @@ export default function Dashboard() {
           <Grid container spacing={2}>
             {/* SuperChatBot */}
             <Grid item xs={12} md={8} lg={9}>
-              
+            <Typography component="h1" variant="h4" color="inherit" noWrap className={classes.title}>
+            Translator
+          </Typography>
               <SuperChatBot
-            title="My Bot"
+            title="Translator"
             botAlias="test"       
             botName="Translator"
-            welcomeMessage="Welcome, how can I help you today?"      
+            userName={props.username}
+            placeholder = "translate"
+            welcomeMessage="Welcome, how can I help you today?"
+
           
           />        
              
