@@ -1,12 +1,10 @@
 {
-  "name": "myapp",
+  "name": "SuperChatBot",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.1.0",
-    "@material-ui/icons": "^4.1.0",
-    "aws-amplify": "^1.1.28",
-    "aws-amplify-react": "^2.3.8",
+    "@material-ui/icons": "^4.1.0",  
     "blockstack": "^19.2.1",
     "http-proxy-middleware": "^0.19.1",
     "react": "^16.8.6",
@@ -19,6 +17,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  
   "eslintConfig": {
     "extends": "react-app"
   },

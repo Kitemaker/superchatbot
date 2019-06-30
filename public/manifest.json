@@ -3,9 +3,9 @@
   "name": "SuperChatBot",
   "icons": [
     {
-      "src": "superchatbot_launcher.png",
+      "src": ""https://www.superchatbot.net/superchatbot_launcher.png",
       "sizes": "192x192",
-      "type": "png"
+      "type": "image/png"
     }
   ],
   "start_url": ".",
