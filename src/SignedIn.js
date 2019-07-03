@@ -1,12 +1,7 @@
 import React, { Component } from 'react'
 //import { Switch, Route, Redirect } from 'react-router-dom'
 import { UserSession } from 'blockstack'
-// import EditMe from './EditMe'
-// import Kingdom from './Kingdom'
-// import NavBar from './NavBar'
-// import OptionsList from './OptionsList'
-// import OtherKingdoms from './OtherKingdoms'
-import { appConfig, ME_FILENAME } from './constants'
+import { appConfig } from './constants'
 import './SignedIn.css'
 import Dashboard from './Dashboard'
 
@@ -16,10 +11,10 @@ class SignedIn extends Component {
     super(props)
     this.userSession = new UserSession({ appConfig })
     this.state = {
-      me: {},
+      //me: {},
       savingMe: false,
       savingKingdown: false,
-      redirectToMe: false
+     // redirectToMe: false
     }
 
     // this.loadMe = this.loadMe.bind(this)
@@ -64,22 +59,9 @@ class SignedIn extends Component {
 
   render() {
     const username = this.userSession.loadUserData().username
-    const me = this.state.me
-    const redirectToMe = this.state.redirectToMe
-    // if(redirectToMe) {
-    //   // User hasn't configured her animal
-    //   if(window.location.pathname !== '/me') {
-    //     return (
-    //       <Redirect to="/me" />
-    //     )
-    //   }
-    // }
+    //const me = this.state.me
+    //const redirectToMe = this.state.redirectToMe
 
-    // if(window.location.pathname === '/') {
-    //   return (
-    //     <Redirect to={`/kingdom/${username}`} />
-    //   )
-    // }
 
 
     return (

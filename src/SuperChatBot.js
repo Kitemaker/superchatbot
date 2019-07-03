@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import './SuperChatBot.css';
 import ChatList from './ChatList';
 
-import Amplify, { Auth } from 'aws-amplify';
+//import Amplify, { Auth } from 'aws-amplify';
 import { Container } from '@material-ui/core';
 let AWS = require('aws-sdk');
 
@@ -25,7 +25,7 @@ constructor(props){
 sessionAttributes = {};
 textToPush = null;
 state={
-    chatMessages:[{source:this.props.title ,message:this.props.welcomeMessage}]
+    chatMessages:[{source:'bot' ,message:this.props.welcomeMessage}]
 }
 
 
@@ -96,17 +96,17 @@ handleComplete(err, confirmation) {
 
 textUpdated=(event)=>{ 
  // this.textToPush.value = event.target.value;
-console.log(event.target.value);
+//console.log(event.target.value);
 }
   
 
 render() {
-    const { title, theme, botName, welcomeMessage} = this.props;
+   // const { welcomeMessage} = this.props;
     return (
        <div>
-          <Container  style={{width: "50%",  padding:"10px", background:"lightBlue"}}>  
+          <Container  style={{width: "60%",  padding:"10px", background:"lightBlue"}}>  
           <div class="w3-cell-row">         
-             <ChatList  botTitle={this.props.title} userName={this.props.userName} style={{ marginTop:"10px"}} chatMessages={this.state.chatMessages}/>
+             <ChatList  botTitle={this.props.title} userName="User" style={{ marginTop:"10px"}} chatMessages={this.state.chatMessages}/>
           </div>
           <div class="w3-cell-row"> 
 

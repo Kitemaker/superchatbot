@@ -4,21 +4,21 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
-import Typography from '@material-ui/core/Typography';
-import PersonIcon from '@material-ui/icons/Person';
-import SettingsEthernetIcon from '@material-ui/icons/SettingsEthernet';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
+//import Typography from '@material-ui/core/Typography';
+//import PersonIcon from '@material-ui/icons/Person';
+//import SettingsEthernetIcon from '@material-ui/icons/SettingsEthernet';
+//import ListItemIcon from '@material-ui/core/ListItemIcon';
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    width: '50%',
-    maxWidth: 360,
-    backgroundColor: theme.palette.background.paper,
-  },
-  inline: {
-    display: 'inline',
-  },
-}));
+// const useStyles = makeStyles(theme => ({
+//   root: {
+//     width: '50%',
+//     maxWidth: 360,
+//     backgroundColor: theme.palette.background.paper,
+//   },
+//   inline: {
+//     display: 'inline',
+//   },
+// }));
 
 class ChatListItem extends Component {
 

@@ -9,18 +9,18 @@ import List from '@material-ui/core/List';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
-import Badge from '@material-ui/core/Badge';
+//import Badge from '@material-ui/core/Badge';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
+//import Paper from '@material-ui/core/Paper';
 //import Link from '@material-ui/core/Link';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
-import { mainListItems, secondaryListItems } from './listItems';
+import { mainListItems } from './listItems';
 //import Chart from './Chart';
-import Deposits from './Deposits';
-import Orders from './Orders';
+//import Deposits from './Deposits';
+//import Orders from './Orders';
 import SuperChatBot from './SuperChatBot';
 
 
@@ -123,7 +123,7 @@ export default function Dashboard(props) {
   const handleDrawerClose = () => {
     setOpen(false);
   };
-  const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
+  //const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
   return (
     <div className={classes.root}>
@@ -173,7 +173,7 @@ export default function Dashboard(props) {
           <Grid container spacing={2}>
             {/* SuperChatBot */}
             <Grid item xs={12} md={8} lg={9}>
-            <Typography component="h1" variant="h4" color="inherit" noWrap className={classes.title}>
+            <Typography  align='center'  component="h1" variant="h4" color="inherit" noWrap className={classes.title}>
             Translator
           </Typography>
               <SuperChatBot
@@ -182,7 +182,7 @@ export default function Dashboard(props) {
             botName="Translator"
             userName={props.username}
             placeholder = "translate"
-            welcomeMessage="Welcome, how can I help you today?"
+            welcomeMessage="Welcome, how can I help you today? To start you can enter 'translate' or 'translate into french' "
 
           
           />        
